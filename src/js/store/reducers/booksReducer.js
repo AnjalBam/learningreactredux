@@ -9,7 +9,7 @@ const bookReducer = (state = initialState, action) => {
     case action_types.ADD_BOOK:
       return {
         ...state,
-        books: state.books.push(action.payload),
+        books: state.books.concat(action.payload),
       };
     case action_types.REMOVE_BOOK:
       return {
