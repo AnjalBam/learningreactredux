@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.list-item {
+  list-style-type: none;
+  cursor: pointer;
+}
+.list-item:hover {
+  text-decoration: line-through;
+}
