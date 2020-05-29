@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import * as ACTIONS from "../store/actions/actions";
 
@@ -14,25 +14,27 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export class List extends Component {
-  render() {
-    return (
-      <div>
+export const List = (props) => {
+  return (
+    <div>
+      {props.books.length ? (
         <ul>
-          {this.props.books.map((book) => {
+          {props.books.map((book) => {
             return (
               <li
                 key={book.id}
                 className="list-item"
-                onClick={() => this.props.removeBook(book.id)}>
+                onClick={() => props.removeBook(book.id)}>
                 {book.title}
               </li>
             );
           })}
         </ul>
-      </div>
-    );
-  }
-}
+      ) : (
+        <h4>Nothing to read.. Yay!!</h4>
+      )}
+    </div>
+  );
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(List);
